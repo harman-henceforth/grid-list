@@ -1,0 +1,47 @@
+<div class="row around-xs">
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 pt-3" (click)="clickProduct(product)" *ngFor="let product of products; let i = index">
+        <div class="grid-container">
+            <div class="box">
+                <img src="{{ product.imagePath }}" alt="{{ product.title }}" />
+            </div>
+            <div class="desc">
+                <h3 class="text-color m-0">
+                    {{ product.title }}
+                </h3>
+                <h4 class="fw-900">
+                    <b> 
+                    ${{ product.price }}
+                  </b>
+                </h4>
+            </div>
+            <div class="icons row around-xs">
+                <div class="col icon-box">
+                    <span class="icon-trophy"></span>
+                    <span class="text"> 23 </span>
+                </div>
+                <div class="col icon-box">
+                    <span class="icon-pin"></span>
+                    <span class="text">
+            {{ product.tags }}
+          </span>
+                </div>
+                <div class="col icon-box">
+                    <span class="icon-star"></span>
+                    <span class="text">
+            {{ product.rating }}
+          </span>
+                </div>
+                <div class="col icon-box">
+                    <span class="icon-shield"></span>
+                    <span class="text">
+            {{ product.percentage }}
+          </span>
+                </div>
+                <div *ngIf="product.ePacket" class="col icon-box">
+                    <span class="icon-epack"></span>
+                    <span class="text"> ePack </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

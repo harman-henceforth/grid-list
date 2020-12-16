@@ -1,1 +1,19 @@
-App works
+<div class="main">
+    <div class="container">
+        <div class="row middle-xs between-xs">
+            <div class="col">
+                <h1>Products</h1>
+            </div>
+            <div class="col">
+                <button [class.active]="is_grid" class="btn" (click)="is_grid = true">
+          Grid View
+        </button>
+                <button [class.active]="!is_grid" class="btn ml-2" (click)="is_grid = false">
+          List View
+        </button>
+            </div>
+        </div>
+        <app-list *ngIf="!is_grid" (productClicked)="clicked($event)" [products]="products$ | async"></app-list>
+        <app-grid *ngIf="is_grid" (productClicked)="clicked($event)" [products]="products$ | async"></app-grid>
+    </div>
+</div>

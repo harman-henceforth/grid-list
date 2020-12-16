@@ -1,0 +1,61 @@
+<div class="row around-xs pt-3" (click)="clickProduct(product)" *ngFor="let product of products; let i = index">
+    <div class="col-md-2 mt-md-4 display-none">
+        <div class="box">
+            <h1 class="text-color2 fw-600">{{i+1}}</h1>
+        </div>
+    </div>
+    <div class="col-md-2 mt-md-4 flex-grow-1">
+        <div class="box">
+            <img src="{{ product.imagePath }}" alt="{{ product.title }}" style="width: 100%; height: 90px; padding: 5px; object-fit: contain" />
+        </div>
+    </div>
+    <div class="col-md-8 mt-md-4">
+        <div class="box-1 between-xs">
+            <div class="box-2">
+                <div class="icons mb-3">
+                    <div class="">
+                        <h2 class="text-color fw-600 m-0">
+                            {{ product.title }}
+                        </h2>
+                    </div>
+                    <div class="ml-3 mt-md-4 flex">
+                        <img class="tick-sign" src="./../assets/verified.png">
+                    </div>
+                    <div class="text-bg px-3 p-2 ml-2 small product-text mt-md-4">{{product.createdAt | timeAgo}}</div>
+                    <div class="text-bg-dropship px-3 p-2 ml-2 small product-text mt-md-4">Dropship</div>
+                    <div class="text-bg-error px-3 py-1 ml-2 mt-md-4">
+                        <img class="icon-size2" src="./../assets/cloud_error.png">
+                    </div>
+                    <div class="text-bg-eye px-3 py-1 ml-2 mt-md-4">
+                        <img class="icon-size2" src="./../assets/invisible.png">
+                    </div>
+                    <div class="text-bg-cog px-3 py-1 ml-2 mt-md-4">
+                        <img class="icon-size2" src="./../assets/gear.png">
+                    </div>
+                </div>
+                <div class="icons">
+                    <div class="icon-text fs-22 flex">
+                        <i class="icon-pin fs-22"></i> {{ product.tags }}
+                    </div>
+                    <div class="icon-text fs-22 flex">
+                        <i class="icon-star ml-3 fs-22"></i> {{ product.rating }}
+                    </div>
+                    <div class="icon-text fs-22 flex">
+                        <i class="icon-shield ml-3 fs-22 flex"></i> {{ product.percentage }}
+                    </div>
+                    <div *ngIf="product.ePacket" class="icon-text fs-22 flex">
+                        <i class="icon-epack ml-3 fs-22"></i>ePack
+                    </div>
+                </div>
+            </div>
+            <div class="icons ml-3 mt-md-4">
+                <h2 class="text-success m-0">${{product.price}}</h2>
+                <div class="flex pl-4" style="margin-left: 50px;">
+                    <i class="icon-eye eye-size ml-3 icon-size"></i>
+                    <i class="icon-heart ml-3 icon-size"></i>
+                    <i class="icon-add ml-3 icon-size"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
